@@ -10,7 +10,7 @@ const ProjectList = () => (
   <Section
     title={
       <>
-        Recent <GradientText>Projects</GradientText>
+        Most <GradientText>recent projects</GradientText>
       </>
     }
   >
@@ -31,10 +31,10 @@ const ProjectList = () => (
         }}
         category={
           <>
-            <Tags color={ColorTags.FUCHSIA}>Python</Tags>
+            <Tags color={ColorTags.ZINC}>Python</Tags>
             <Tags color={ColorTags.LIME}>Selenium</Tags>
-            <Tags color={ColorTags.SKY}>Telegram API</Tags>
-            <Tags color={ColorTags.ROSE}>AWS Lambda</Tags>
+            <Tags color={ColorTags.EMERALD}>Telegram API</Tags>
+            <Tags color={ColorTags.ORANGE}>AWS Lambda</Tags>
           </>
         }
       />
@@ -50,7 +50,7 @@ const ProjectList = () => (
         img={{ src: '/assets/images/project-fire.png', alt: 'Project Fire' }}
         category={
           <>
-            <Tags color={ColorTags.VIOLET}>Terraform</Tags>
+            <Tags color={ColorTags.NEUTRAL}>Terraform</Tags>
             <Tags color={ColorTags.LIME}>AWS S3</Tags>
             <Tags color={ColorTags.EMERALD}>AWS Route53</Tags>
             <Tags color={ColorTags.YELLOW}>AWS Cloud front</Tags>
@@ -58,7 +58,7 @@ const ProjectList = () => (
         }
       />
       <Project
-        name="Home automation"
+        name="Home apps deploy automation"
         description="An open source home automation system that uses a set of 
         Raspberry Pis as a central hub for all the devices. Services like AdGuard Home, 
         NextCloud, Home Assistant, and WireGuard are deployed as containers using Podman."
@@ -66,9 +66,9 @@ const ProjectList = () => (
         img={{ src: '/assets/images/project-maps.png', alt: 'Project Maps' }}
         category={
           <>
-            <Tags color={ColorTags.FUCHSIA}>Ansible</Tags>
-            <Tags color={ColorTags.INDIGO}>Containers</Tags>
-            <Tags color={ColorTags.ROSE}>Networking</Tags>
+            <Tags color={ColorTags.LIME}>Ansible</Tags>
+            <Tags color={ColorTags.ZINC}>Containers</Tags>
+            <Tags color={ColorTags.YELLOW}>Networking</Tags>
           </>
         }
       />
