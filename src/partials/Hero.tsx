@@ -15,9 +15,9 @@ const Hero = () => (
       }
       description={
         <>
-          In the realm of {' '}<a className="text-cyan-400 hover:underline" href="/">cloud systems administration </a>and team leadership, 
+          In the realm of {' '}<a className="text-cyan-400 hover:underline" href="/">cloud</a> systems administration and team leadership, 
           I thrive on the dynamic interplay of learning, automation, and collaboration.<br></br>
-          I advocate for the enriching process of not just learning but <a className="text-cyan-400 hover:underline" href="/">actively sharing</a> and elucidating concepts with fellow team members.
+          I advocate for the enriching process of not just learning but actively <a className="text-cyan-400 hover:underline" href="/">sharing</a> and elucidating concepts with fellow team members.
         </>
       }
       avatar={
@@ -30,13 +30,13 @@ const Hero = () => (
       }
       socialButtons={
         <>
-          <a href="/">
+          <a href="https://tinyurl.com/eddimas-linkedin">
             <HeroSocial
               src="/assets/images/linkedin-icon.png"
               alt="Linkedin icon"
             />
           </a>
-          <a href="/">
+          <a href="https://tinyurl.com/github-eddimas">
             <HeroSocial
               src="/assets/images/github-icon.png"
               alt="Github icon"
