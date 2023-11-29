@@ -15,9 +15,9 @@ const Hero = () => (
       }
       description={
         <>
-          In the realm of {' '}<a className="text-cyan-400 hover:underline" href="/">cloud</a> systems administration and team leadership, 
-          I thrive on the dynamic interplay of learning, automation, and collaboration.<br></br>
-          I advocate for the enriching process of not just learning but actively <a className="text-cyan-400 hover:underline" href="/">sharing</a> and elucidating concepts with fellow team members.
+          I'm a passionate <a className="text-cyan-400 hover:underline" href="/">SRE</a> with SecDevOps mindset. Always looking to enrich process not just learning,
+          but actively <a className="text-cyan-400 hover:underline" href="/">sharing</a> and demonstrating concepts with fellow team members.<br />
+          <a className="text-cyan-400 hover:underline" href="/">AWS Solutions Architect Associate</a> certified, with a strong background in Linux, Cloud, Open Source and DevOps culture.
         </>
       }
       avatar={
@@ -36,7 +36,7 @@ const Hero = () => (
               alt="Linkedin icon"
             />
           </a>
-          <a href="https://tinyurl.com/github-eddimas">
+          <a href="https://tinyurl.com/eddimas-github">
             <HeroSocial
               src="/assets/images/github-icon.png"
               alt="Github icon"

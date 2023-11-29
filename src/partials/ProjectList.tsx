@@ -16,10 +16,14 @@ const ProjectList = () => (
   >
     <div className="flex flex-col gap-6">
       <Project
-        name="Project 1"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        bibendum. Nunc non posuere consectetur, justo erat semper enim, non
-        hendrerit dui odio id enim."
+        name="Find, monitoring and schedule the earliest drive licence appointment"
+        description="This project aims to automate the often frustrating 
+        process of finding and booking DMV appointments. I created a system 
+        to continuously monitor the DMV appointment site for newly available slots. 
+        Using a telegram bot users are able to subscribe the notifications 
+        for specific locations and time slots.
+        When an earlier appointment becomes available, the bot should instantly notify subscribed users, 
+        enabling them to quickly secure the desired appointment."
         link="/"
         img={{
           src: '/assets/images/project-web-design.png',
@@ -27,40 +31,44 @@ const ProjectList = () => (
         }}
         category={
           <>
-            <Tags color={ColorTags.FUCHSIA}>Astro.js</Tags>
-            <Tags color={ColorTags.LIME}>Web design</Tags>
-            <Tags color={ColorTags.SKY}>Tailwind.css</Tags>
-            <Tags color={ColorTags.ROSE}>TypeScript</Tags>
+            <Tags color={ColorTags.FUCHSIA}>Python</Tags>
+            <Tags color={ColorTags.LIME}>Selenium</Tags>
+            <Tags color={ColorTags.SKY}>Telegram API</Tags>
+            <Tags color={ColorTags.ROSE}>AWS Lambda</Tags>
           </>
         }
       />
       <Project
-        name="Project 2"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        bibendum. Nunc non posuere consectetur, justo erat semper enim, non
-        hendrerit dui odio id enim."
+        name="Static site terraform module"
+        description="Terraform module that abstracts the AWS infrastructure provision 
+        and all the backend deployment settings for static site deployments. 
+        Users should be able to choose their preferred static site generator and be 
+        able to use the caching policies using cloud front distribution as CDN.
+        This module aims to provide a consistent and reproducible way to deploy static sites, 
+        promoting flexibility and avoiding vendor lock-in."
         link="/"
         img={{ src: '/assets/images/project-fire.png', alt: 'Project Fire' }}
         category={
           <>
-            <Tags color={ColorTags.VIOLET}>Next.js</Tags>
-            <Tags color={ColorTags.EMERALD}>Blog</Tags>
-            <Tags color={ColorTags.YELLOW}>JavaScript</Tags>
+            <Tags color={ColorTags.VIOLET}>Terraform</Tags>
+            <Tags color={ColorTags.LIME}>AWS S3</Tags>
+            <Tags color={ColorTags.EMERALD}>AWS Route53</Tags>
+            <Tags color={ColorTags.YELLOW}>AWS Cloud front</Tags>
           </>
         }
       />
       <Project
-        name="Project 3"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        bibendum. Nunc non posuere consectetur, justo erat semper enim, non
-        hendrerit dui odio id enim."
+        name="Home automation"
+        description="An open source home automation system that uses a set of 
+        Raspberry Pis as a central hub for all the devices. Services like AdGuard Home, 
+        NextCloud, Home Assistant, and WireGuard are deployed as containers using Podman."
         link="/"
         img={{ src: '/assets/images/project-maps.png', alt: 'Project Maps' }}
         category={
           <>
-            <Tags color={ColorTags.FUCHSIA}>Astro.js</Tags>
-            <Tags color={ColorTags.INDIGO}>Bootstrap</Tags>
-            <Tags color={ColorTags.ROSE}>TypeScript</Tags>
+            <Tags color={ColorTags.FUCHSIA}>Ansible</Tags>
+            <Tags color={ColorTags.INDIGO}>Containers</Tags>
+            <Tags color={ColorTags.ROSE}>Networking</Tags>
           </>
         }
       />

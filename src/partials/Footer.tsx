@@ -1,10 +1,9 @@
 import { FooterCopyright, Section } from 'astro-boilerplate-components';
-
 import { AppConfig } from '@/utils/AppConfig';
 
 const Footer = () => (
   <Section>
-    <FooterCopyright site_name={AppConfig.site_name} />
+  Built with ♥ by{' '}<a href={AppConfig.authorWebsite}>{AppConfig.authorName}</a>
   </Section>
 );
 
