@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import preact from "@astrojs/preact";
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import { astroImageTools } from 'astro-imagetools';
@@ -14,15 +13,13 @@ export default defineConfig({
   trailingSlash: 'always', // Use to always append '/' at end of url
   markdown: {
     shikiConfig: {
-      // Choose from Shiki's built-in themes (or add your own)
-      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'min-light',
+      experimentalThemes: {
+        light: 'github-light',
+        dark: 'github-dark'
+      }
     },
   },
   integrations: [
-    preact({ 
-      compat: true,
-      include: ['**/preact/*']}),
     react({
       include: ['**/react/*'],
     }),
@@ -31,4 +28,12 @@ export default defineConfig({
     robotsTxt(),
     astroImageTools,
   ],
+  prefetch: true,
+  experimental: {
+    contentCollectionCache: true,
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en", "es", "pt-br"]
+    }
+  }
 });
