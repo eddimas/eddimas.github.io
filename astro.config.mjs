@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import preact from "@astrojs/preact";
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import { astroImageTools } from 'astro-imagetools';
@@ -15,11 +16,16 @@ export default defineConfig({
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'monokai',
+      theme: 'min-light',
     },
   },
   integrations: [
-    react(),
+    preact({ 
+      compat: true,
+      include: ['**/preact/*']}),
+    react({
+      include: ['**/react/*'],
+    }),
     tailwind({}),
     sitemap(),
     robotsTxt(),

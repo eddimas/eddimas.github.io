@@ -34,7 +34,7 @@ const ProjectList = () => (
             <Tags color={ColorTags.ZINC}>Python</Tags>
             <Tags color={ColorTags.LIME}>Selenium</Tags>
             <Tags color={ColorTags.EMERALD}>Telegram API</Tags>
-            <Tags color={ColorTags.ORANGE}>AWS Lambda</Tags>
+            <Tags color={ColorTags.YELLOW}>AWS Lambda</Tags>
           </>
         }
       />
