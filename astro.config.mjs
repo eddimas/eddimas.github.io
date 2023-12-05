@@ -28,6 +28,10 @@ export default defineConfig({
     robotsTxt(),
     astroImageTools,
   ],
+  // middlewares: [
+  //   // Add the path to your middleware file.
+  //   "./src/middleware.ts",
+  // ],
   prefetch: true,
   experimental: {
     contentCollectionCache: true,
