@@ -1,113 +1,252 @@
 ---
-import DefaultLayout from '../components/LayoutDefault.astro';
-import Button from '../components/Button.astro';
-import { yearsInIndustry } from "../js/yearsInIndustry";
+import { getCollection } from 'astro:content';
+
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Component Imports
+import CallToAction from '../components/CallToAction.astro';
+import Grid from '../components/Grid.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+// Page section components
+import ContactCTA from '../components/ContactCTA.astro';
+import Skills from '../components/Skills.astro';
+
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection('work'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 4);
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
 ---
 
-<DefaultLayout documentTitle="Eduardo Dimas">
-  <section class="container" style="z-index: 1; position: relative;">
-    <h1>
-      <span class="intro-welcome">Welcome, my name is <br></span>
-      <span class="intro-name text-swipe-animation">Eduardo Dimas.</span>
-    </h1>
-    <h2 class="intro">I build compelling <br class="intro-break" />digital experiences.</h2>
-    <p class="desc">
-      Software engineer, passionate about solving problems with code.<br class="desc-break" /> Over {yearsInIndustry} years of industry experience specialising in JavaScript, React & Node.
-    </p>
+<BaseLayout>
+	<div class="stack gap-20 lg:gap-48">
+		<div class="wrapper stack gap-8 lg:gap-20">
+			<header class="hero">
+				<Hero
+					title="Hello, my name is Eduardo Dimas"
+					tagline="I am a DevOps Engineer who is currently based in Dallas, Texas."
+					align="start"
+				>
+					<div class="roles">
+						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
+						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+					</div>
+				</Hero>
 
-    <Button href="/projects" variant="outline" size="lg" colorScheme="green">
-      See my projects
-      <svg style="margin-left: 5px" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-    </Button>
-  </section>
+				<img
+					alt="Eduardo Dimas smiling in front of a white background"
+					width="480"
+					height="620"
+					src="/assets/portrait.jpg"
+				/>
+			</header>
 
-  <canvas id="waves"></canvas>
-</DefaultLayout>
+			<Skills />
+		</div>
 
-<style lang="scss">
-  $waves-opacity: 0.5;
+		<main class="wrapper stack gap-20 lg:gap-48">
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Selected Work</h3>
+					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+				</header>
 
-  @keyframes fadeInWaves {
-    0% { opacity: 0 }
-    100% { opacity: $waves-opacity }
-  }
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							projects.map((project) => (
+								<li>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
 
-  canvas#waves {
-    width: 100%;
-    height: 100vh;
-    animation: fadeInWaves 2s;
-    background: transparent;
-    opacity: $waves-opacity;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
+				<div class="cta">
+					<CallToAction href="/work/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
 
-  h1 {
-    line-height: 2.5rem;
-    margin: 1rem 0;
-  }
+			<section class="section with-background bg-variant">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Mentions</h3>
+					<p>
+						I have been fortunate enough to receive praise for my work in several publications. Take
+						a look below to learn more.
+					</p>
+				</header>
 
-  .intro-welcome {
-    color: var(--color-mint);
-    font-family: var(--font-family-IBM-Plex-Mono);
-    font-weight: 600;
-    font-size: var(--font-size-base);
-  }
+				<div class="gallery">
+					<Grid variant="small">
+						{
+							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+								<li class="mention-card">
+									<p>{brand}</p>
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</section>
+		</main>
 
-  .intro-name {
-    font-family: var(--font-family-Mukta);
-    font-size: var(--font-size-14xl);
-    overflow: hidden;
-    display: inline-block;
-    padding: 10px 0;
-    color: white;
-  }
+		<ContactCTA />
+	</div>
+</BaseLayout>
 
-  .intro {
-    color: var(--color-silver-300);
-    font-size: var(--font-size-11xl);
-    line-height: 3.25rem;
-    margin: 1rem 0;
-  }
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
 
-  .desc {
-    color: var(--color-silver-100);
-    font-size: var(--font-size-lg);
-    line-height: 1.5em;
-    margin: 1.5rem 0;
-  }
+	.roles {
+		display: none;
+	}
 
-  @media screen and (max-width: 980px) {
-    h1 {
-      line-height: 1.75rem;
-      margin: 0.5rem 0;
-    }
+	.hero img {
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
 
-    .intro-name {
-      font-size: var(--font-size-10xl);
-      line-height: 3rem;
-    }
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 3.75rem;
+		}
 
-    .intro {
-      font-size: var(--font-size-3xl);
-      line-height: 2rem;
-      margin: 0.5rem 0;
-    }
+		.roles {
+			margin-top: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+		}
 
-    .intro-break {
-      display: none;
-    }
+		.hero img {
+			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
+	}
 
-    .desc-break {
-      display: none;
-    }
-  }
+	/* ====================================================== */
+
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.with-background {
+		position: relative;
+	}
+
+	.with-background::before {
+		--hero-bg: var(--bg-image-subtle-2);
+
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		left: 50%;
+		width: 100vw;
+		aspect-ratio: calc(2.25 / var(--bg-scale));
+		top: 0;
+		transform: translateY(-75%) translateX(-50%);
+		background:
+			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+			var(--gray-999);
+		background-blend-mode: overlay, normal, normal, normal;
+		mix-blend-mode: var(--bg-blend-mode);
+		z-index: -1;
+	}
+
+	.with-background.bg-variant::before {
+		--hero-bg: var(--bg-image-subtle-1);
+	}
+
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-2xl);
+	}
+
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			gap: 5rem;
+		}
+
+		.section.with-cta {
+			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		}
+
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+		}
+
+		.gallery {
+			grid-area: gallery;
+		}
+
+		.cta {
+			grid-area: cta;
+		}
+	}
+
+	/* ====================================================== */
+
+	.mention-card {
+		display: flex;
+		height: 7rem;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		color: var(--gray-300);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	@media (min-width: 50em) {
+		.mention-card {
+			border-radius: 1.5rem;
+			height: 9.5rem;
+		}
+	}
 </style>
-
-<script hoist>
-  import "../js/wave.js";
-</script>
