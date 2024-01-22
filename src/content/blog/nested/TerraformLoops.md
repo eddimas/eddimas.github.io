@@ -60,7 +60,9 @@ Here's an example of Terraform code that shows how to use `for_each` and count e
 variable "dynamic_items" {
   type    = map(string)
   default = {
-    ubuntu_server = "ami-01dd271720c1ba44f젊    windows_server = "ami-0274fd9e256dea7b1젊    rhel_server = "ami-013d87f7217614e10젊  }
+    ubuntu_server = "ami-01dd271720c1ba44f"
+    windows_server = "ami-0274fd9e256dea7b1"
+    rhel_server = "ami-013d87f7217614e10"  }
 }
 
 resource "aws_instance" "servers" {
