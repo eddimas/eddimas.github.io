@@ -62,7 +62,8 @@ variable "dynamic_items" {
   default = {
     ubuntu_server = "ami-01dd271720c1ba44f"
     windows_server = "ami-0274fd9e256dea7b1"
-    rhel_server = "ami-013d87f7217614e10"  }
+    rhel_server = "ami-013d87f7217614e10"
+    }
 }
 
 resource "aws_instance" "servers" {
