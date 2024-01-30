@@ -6,7 +6,7 @@ npm create astro@latest -- --template portfolio
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![portfolio](https://github.com/eddimas/eddimas.github.io/blob/467bfcebac7e5f3a269ce5503875023c7453661c/public/assets/Screenshot.png)
+![portfolio](https://eduardodimas.com/assets/large_card.png)
 
 ## 🧞 Commands
 
