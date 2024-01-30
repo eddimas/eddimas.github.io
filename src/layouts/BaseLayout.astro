@@ -21,14 +21,16 @@ const { title, description } = Astro.props;
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="twitter:card" content="EduardoDimas.com" />
+		<!--  Essential META Tags -->
+		<meta property="og:title" content="Eduardo Dimas' Portfolio">
+		<meta property="og:type" content="Portfolio" />
+		<meta property="og:image" content="https://eduardodimas.com/assets/large_card.png">
+		<meta property="og:url" content="https://eduardodimas.com/">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="og:description" content="Senior DevOps/SRE Engineer" />
 		<meta name="twitter:site" content="@eddimas" />
 		<meta name="view-transition" content="same-origin" />
-		<meta property="og:type" content="Portfolio" />
-		<meta property="og:title" content="Eduardo Dimas' Portfolio" />
-		<meta property="og:description" content="Senior DevOps/SRE Engineer" />
-		<meta property="og:url" content="https://eduardodimas.com/" />
-		<meta property="og:image" content="https://eduardodimas.com/assets/large_card.png" />
+
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
