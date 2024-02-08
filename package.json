@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start:dev": "npm install && astro dev",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
