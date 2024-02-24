@@ -1,9 +1,91 @@
 ---
-import Hero from '../components/Hero.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+import ContactCTA from "../components/ContactCTA.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Slider from '../components/Slider.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const blog = await getCollection("blog");
+  return blog.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Slider title="Camry" tagline="Not sssd" />
+<BaseLayout title="New 2025 Toyota Camry vs. Old Toyota Camry: All the Changes Side-By-Side" description="See what's new with the Honda Accord's midsize sedan nemesis.">
+  <div class="stack gap-20">
+    <div class="stack gap-15">
+      <header>
+        <div class="wrapper stack gap-2">
+          <a class="back-link" href="/blog/"><Icon icon="arrow-left" /> blog</a>
+          <Hero title="New 2025 Toyota Camry vs. Old Toyota Camry: All the Changes Side-By-Side" align="start">
+            <div class="details">
+              See what's new with the Honda Accord's midsize sedan nemesis.
+              <div class="tags">
+              2024 Toyota Camry and 2025 Toyota Camry
+              </div>
+            </div>
+          </Hero>
+           Alexander StoklosaWriterManufacturerPhotographerNov 15, 2023
+        </div>
+      </header>
+      <main class="wrapper">
+        <div class="stack gap-10 content">
+
+
+Toyota just unveiled its newest Camry sedan, and the omnipresent four-door is entering its ninth generation since first going on sale for the 1983 model year over 40 years ago. The most recent Camry, introduced for 2018, was the most aggressively styled ever and infused with more sportiness than any Camry before it—so, which direction did Toyota take the new 2024 model? Though the latest midsize Toyota is by the automaker's own admission a heavily revised take on the current model, it makes a few big leaps forward, including adopting a hybrid-only powertrain lineup, new interior displays, and even sleeker styling. We lined up the new Camry alongside the outgoing version to highlight the biggest differences inside and out:
+
+Old Toyota Camry | Side View
+
+          <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+It's remarkable what a few years of crushing familiarization can do to a shape that, when it landed in 2018, was shockingly sporty for a Camry. But spot a few hundred thousand of these on American roads for five years, and it becomes almost pedestrian. In profile, the outgoing Toyota Camry blends expressive body lines and lighting with an upright, traditional butt and an almost blocky, conventionally sculpted hood line. It's unabashedly a three-box sedan, even if it's more interesting to behold than any Camry before it.
+
+New Toyota Camry | Side View
+    <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+          If the old Camry looks somewhat ordinary in profile, its nose is anything but. Toyota offered two basic styling packages for the last-generation Camry, with the sportier SE and XSE model wearing the grille-tastic setup pictured here and more traditionally styled LE and XLE trims wearing toned-down bumpers and wider grilles without extra corner intakes. Again, shove aside familiarity and think back to 2018: It was eye-popping for a Camry, hybrid or otherwise, to have a schnoz so thoroughly covered in grillework as to make a Porsche 911 GT3 blush. Sure, most of the black plastic mesh is actually closed off (for smoother aerodynamics and—let's face it—no Camry engine requires that much cooling), but the look is undeniably bold for a midsize sedan.
+
+New Toyota Camry | Front View
+              <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+          As before, the 2025 Camry can be outfitted with one of two separate front end designs, again split down LE/XLE and SE/XSE lines. There is slightly less differentiation than before, however, with both variants wearing effectively the same basic look; only the details change. That means both LE/XLE and SE/XSE versions get the large C-shaped corner vents seen on the XSE here, along with the thin upper grille slot and larger lower central intake. The corner intakes aren't as wide on the LE and XLE, however, and the sportier mesh pattern on the central grille pictured above is traded for more traditional horizontal strakes. On both, the look is cleaner and more upscale than before, with clear nods to other newer Toyota cars such as the Crown sedan and the newest Prius hybrid, particularly in the slim, wide headlights. We'd even go out on a limb and declare the grille treatment downright Lexus-like—it echoes the mesh-fading-into-bumper grille designs on the latest RX and TX SUVs.
+
+Old Toyota Camry | Badges
+              <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+          Much like how the previous Camry's look was divided along trim level lines, so, too, were its badges separated by powertrain. Buy a gas-fed Camry—which came with either a 2.5-liter I-4 or a 3.5-liter V-6—and your sedan wore plain chrome Toyota badges front and rear. Opt for a hybrid, and those badges came with a blue accent. Hybrids also got "HYBRID" trunklid badges next to a little blue-and-chrome squiggle.
+New Toyota Camry | Badges
+          <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+          Where before only hybrid variants wore the blue-tinged Toyota badges front and rear (as have all hybrid Toyota products for years), the new Camrys do away with it altogether. Which is strange, of course, given that you can only buy a 2025 Camry with hybrid power. The gas engine options are dead. Are we freaks who pay way too close attention to Camrys' badges? Maybe, but the new badges do look better—their simple silver finish and three-dimensional look is more upscale than the old Camry's pieces, which had a sticker-on-black-plastic appearance, especially up front, where the badge acted as a cover for the driver assistance system's millimeter wave radar sensor. On the new Camry, that sensor array appears to have been moved to a better hiding spot in the thin upper grille slot.
+          <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+          Don't worry, Toyota isn't trying to hide the 2025 Camry's hybrid-ness—there is a new "HEV" (that's "Hybrid Electric Vehicle") badge on the trunklid, accompanied by a small blue circle, a motif spreading throughout Toyota's newer electrified models, including the Prius Prime plug-in hybrid and the bZ4X EV.
+
+Old Toyota Camry | Rear View
+          <div class="content">
+            <Slider title="Camry" tagline="Not sssd" />
+          </div>
+        </div>
+      </main>
+    </div>
+    <ContactCTA />
+  </div>
 </BaseLayout>
