@@ -3,8 +3,8 @@
 // https://docs.astro.build/en/core-concepts/layouts/
 
 // Component Imports
-import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
+import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -21,7 +21,6 @@ const { title, description } = Astro.props;
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<!--  Essential META Tags -->
 		<meta property="og:title" content="Eduardo Dimas' Portfolio">
 		<meta property="og:type" content="Portfolio" />
 		<meta property="og:image" content="https://eduardodimas.com/assets/large_card.png">
@@ -41,15 +40,12 @@ const { title, description } = Astro.props;
 		</div>
 
 		<script>
-			// Add “loaded” class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));
 		</script>
 
 		<style>
 			:root {
 				--_placeholder-bg: linear-gradient(transparent, transparent);
-				/* --bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-light.svg'); */
 				--bg-image-subtle-1: var(--_placeholder-bg);
 				--bg-image-subtle-2: var(--_placeholder-bg);
 				--bg-image-footer: var(--_placeholder-bg);
@@ -62,43 +58,13 @@ const { title, description } = Astro.props;
 			}
 
 			:root.theme-dark {
-				/* --bg-image-main: url('/assets/backgrounds/bg-main-dark-800w.jpg');
-				--bg-image-main-curves: url('/assets/backgrounds/bg-main-dark.svg'); */
 				--bg-svg-blend-mode: darken;
 				--bg-blend-mode: lighten;
-			}
-
-			/* These backgrounds are displayed below the fold, so we lazy load them
-			   once the `.loaded` class has been set.  */
-			:root.loaded {
-				/* --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-light-800w.jpg'); */
-			}
-			:root.loaded.theme-dark {
-				/* --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-800w.jpg');
-				--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-800w.jpg');
-				--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-800w.jpg'); */
 			}
 
 			@media (min-width: 50em) {
 				:root {
 					--bg-scale: 1;
-					/* --bg-image-main: url('/assets/backgrounds/bg-main-light-1440w.jpg'); */
-				}
-				:root.theme-dark {
-					/* --bg-image-main: url('/assets/backgrounds/bg-main-dark-1440w.jpg'); */
-				}
-
-				:root.loaded {
-					/* --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-light-1440w.jpg'); */
-				}
-				:root.loaded.theme-dark {
-					/* --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-1440w.jpg');
-					--bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-1440w.jpg');
-					--bg-image-footer: url('/assets/backgrounds/bg-footer-dark-1440w.jpg'); */
 				}
 			}
 
@@ -120,7 +86,6 @@ const { title, description } = Astro.props;
 					/*base*/ normal;
 			}
 			@media (forced-colors: active) {
-				/* Deactivate custom backgrounds for high contrast users. */
 				.backgrounds {
 					background: none;
 					background-blend-mode: none;
