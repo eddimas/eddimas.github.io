@@ -1,8 +1,16 @@
 ---
 import Icon from "./Icon.astro";
+interface Props {
+	href: string;
+	label: string;
+}
+
+const { href } = Astro.props;
+const { label } = Astro.props;
 ---
-<form action="https://dog.ceo/api/breeds/image/random" method="get">
-	<button type="submit">    Send Me a Message
+
+<form action={href} method="get">
+	<button type="submit">    {label}
 		<Icon icon="paper-plane-tilt" size="1.2em" /></button>
 </form>
 
