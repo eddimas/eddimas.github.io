@@ -2,12 +2,12 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import ContactCTA from "../components/ContactCTA.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
 
+// Fetch and sort blog posts by publish date
 const projects = (await getCollection("blog")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
@@ -15,15 +15,18 @@ const projects = (await getCollection("blog")).sort(
 
 <BaseLayout
   title="My Blog | Eduardo Dimas"
-  description="Find below my most recent blog entries"
+  description="Explore my recent blog entries, covering DevOps, SRE, and more!"
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
+      <!-- Hero Section -->
       <Hero
         title="My Blog"
-        tagline="Find below my most recent blog entries"
+        tagline="Discover insights, tips, and stories from my journey in DevOps and SRE."
         align="start"
       />
+
+      <!-- Blog Grid -->
       <Grid variant="offset">
         {
           projects.map((project) => (
@@ -34,6 +37,8 @@ const projects = (await getCollection("blog")).sort(
         }
       </Grid>
     </main>
+
+    <!-- Contact Section -->
     <ContactCTA />
   </div>
 </BaseLayout>

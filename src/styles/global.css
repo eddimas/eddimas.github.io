@@ -1,4 +1,4 @@
-/* Global variables */
+/* Global Variables */
 :root {
   /* Colors */
   --gray-0: #090b11;
@@ -16,6 +16,7 @@
   --gray-999_40: hsla(var(--gray-999-basis), 0.4);
   --gray-999: #ffffff;
 
+  /* Accent Colors */
   --accent-light: #c1cbd1;
   --accent-regular: #607a87;
   --accent-dark: #324f5c;
@@ -23,41 +24,19 @@
   --accent-subtle-overlay: var(--accent-overlay);
   --accent-text-over: var(--gray-999);
 
+  /* Link Color */
   --link-color: var(--accent-regular);
 
   /* Gradients */
-  --gradient-stop-1: var(--accent-light);
-  --gradient-stop-2: var(--accent-regular);
-  --gradient-stop-3: var(--accent-dark);
-  --gradient-subtle: linear-gradient(
-    150deg,
-    var(--gray-900) 19%,
-    var(--gray-999) 150%
-  );
-  --gradient-accent: linear-gradient(
-    150deg,
-    var(--gradient-stop-1),
-    var(--gradient-stop-2),
-    var(--gradient-stop-3)
-  );
-  --gradient-accent-orange: linear-gradient(
-    150deg,
-    #6d4e3c,
-    var(--accent-regular),
-    var(--accent-dark)
-  );
+  --gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
+  --gradient-accent: linear-gradient(150deg, var(--accent-light), var(--accent-regular), var(--accent-dark));
+  --gradient-accent-orange: linear-gradient(150deg, #6d4e3c, var(--accent-regular), var(--accent-dark));
   --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 
   /* Shadows */
-  --shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01),
-    0px 4px 2px rgba(9, 11, 17, 0.01), 0px 2px 2px rgba(9, 11, 17, 0.02),
-    0px 0px 1px rgba(9, 11, 17, 0.03);
-  --shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01),
-    0px 16px 10px rgba(9, 11, 17, 0.03), 0px 7px 7px rgba(9, 11, 17, 0.05),
-    0px 2px 4px rgba(9, 11, 17, 0.06);
-  --shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01),
-    0px 35px 21px rgba(9, 11, 17, 0.05), 0px 16px 16px rgba(9, 11, 17, 0.1),
-    0px 4px 9px rgba(9, 11, 17, 0.12);
+  --shadow-sm: 0 6px 3px rgba(9, 11, 17, 0.01), 0 4px 2px rgba(9, 11, 17, 0.01), 0 2px 2px rgba(9, 11, 17, 0.02), 0 0 1px rgba(9, 11, 17, 0.03);
+  --shadow-md: 0 28px 11px rgba(9, 11, 17, 0.01), 0 16px 10px rgba(9, 11, 17, 0.03), 0 7px 7px rgba(9, 11, 17, 0.05), 0 2px 4px rgba(9, 11, 17, 0.06);
+  --shadow-lg: 0 62px 25px rgba(9, 11, 17, 0.01), 0 35px 21px rgba(9, 11, 17, 0.05), 0 16px 16px rgba(9, 11, 17, 0.1), 0 4px 9px rgba(9, 11, 17, 0.12);
 
   /* Text Sizes */
   --text-sm: 0.875rem;
@@ -71,8 +50,7 @@
   --text-5xl: 4.5rem;
 
   /* Fonts */
-  --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-body: "Public Sans", var(--font-system);
   --font-brand: Rubik, var(--font-system);
 
@@ -80,6 +58,7 @@
   --theme-transition: 0.2s ease-in-out;
 }
 
+/* Dark Theme Variables */
 :root.theme-dark {
   --gray-0: #ffffff;
   --gray-50: #f3f4f7;
@@ -105,31 +84,16 @@
   --link-color: var(--accent-dark);
 
   --gradient-stop-1: #6d4e3c;
-  --gradient-subtle: linear-gradient(
-    150deg,
-    var(--gray-900) 19%,
-    var(--gray-999) 81%
-  );
-  --gradient-accent-orange: linear-gradient(
-    150deg,
-    #6d4e3c,
-    var(--accent-regular),
-    var(--accent-light)
-  );
+  --gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
+  --gradient-accent-orange: linear-gradient(150deg, #6d4e3c, var(--accent-regular), var(--accent-light));
   --gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
 
-  --shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01),
-    0px 4px 2px rgba(255, 255, 255, 0.01), 0px 2px 2px rgba(255, 255, 255, 0.02),
-    0px 0px 1px rgba(255, 255, 255, 0.03);
-  --shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01),
-    0px 16px 10px rgba(255, 255, 255, 0.03),
-    0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
-  --shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01),
-    0px 35px 21px rgba(255, 255, 255, 0.05),
-    0px 16px 16px rgba(255, 255, 255, 0.1),
-    0px 4px 9px rgba(255, 255, 255, 0.12);
+  --shadow-sm: 0 6px 3px rgba(255, 255, 255, 0.01), 0 4px 2px rgba(255, 255, 255, 0.01), 0 2px 2px rgba(255, 255, 255, 0.02), 0 0 1px rgba(255, 255, 255, 0.03);
+  --shadow-md: 0 28px 11px rgba(255, 255, 255, 0.01), 0 16px 10px rgba(255, 255, 255, 0.03), 0 7px 7px rgba(255, 255, 255, 0.05), 0 2px 4px rgba(255, 255, 255, 0.06);
+  --shadow-lg: 0 62px 25px rgba(255, 255, 255, 0.01), 0 35px 21px rgba(255, 255, 255, 0.05), 0 16px 16px rgba(255, 255, 255, 0.1), 0 4px 9px rgba(255, 255, 255, 0.12);
 }
 
+/* Base Styles */
 html,
 body {
   height: 100%;
@@ -149,6 +113,7 @@ body {
 *::before {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 img {
@@ -158,8 +123,16 @@ img {
 
 a {
   color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--theme-transition);
 }
 
+a:hover,
+a:focus {
+  color: var(--accent-light);
+}
+
+/* Typography */
 h1,
 h2,
 h3,
@@ -192,24 +165,11 @@ h5 {
 }
 
 /* Utilities */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 .wrapper {
   width: 100%;
   max-width: 83rem;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .stack {
@@ -242,6 +202,7 @@ h5 {
   gap: 12rem;
 }
 
+/* Responsive Utilities */
 @media (min-width: 50em) {
   .lg\:gap-2 {
     gap: 0.5rem;

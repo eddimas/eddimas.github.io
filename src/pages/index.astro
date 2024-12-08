@@ -19,17 +19,19 @@ const projects = (await getCollection("blog"))
 
 <BaseLayout>
   <div class="stack gap-20 lg:gap-48">
+    <!-- Hero Section -->
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
           title="Hello, my name is Eduardo Dimas"
-          tagline="Lead SRE/DevOps engineer who is currently based in Dallas, TX."
+          tagline="SRE/DevOps engineer who is currently based in Dallas, TX."
           align="start"
         >
           <div class="roles">
-            <Pill><Icon icon="code" size="1.33em" /> DevOps</Pill>
-            <Pill><Icon icon="terminal-window" size="1.33em" /> Linux</Pill>
-            <Pill><Icon icon="rocket-launch" size="1.33em" /> Automation</Pill>
+            <Pill><Icon icon="code" size="1.33em" /> Python</Pill>
+            <Pill><Icon icon="terminal-window" size="1.33em" /> Automation</Pill
+            >
+            <Pill><Icon icon="rocket-launch" size="1.33em" /> Containers</Pill>
           </div>
         </Hero>
 
@@ -37,18 +39,21 @@ const projects = (await getCollection("blog"))
           alt="Eduardo Dimas smiling in front of a white background"
           width="480"
           height="620"
+          loading="lazy"
           src="/assets/portrait.webp"
+          class="hero-image"
         />
       </header>
 
       <Skills />
     </div>
 
+    <!-- Blog Posts Section -->
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Blog posts</h3>
-          <p>Take a look below at some of latest post of my blog.</p>
+          <p>Take a look below at some of the latest posts from my blog.</p>
         </header>
 
         <div class="gallery">
@@ -64,9 +69,7 @@ const projects = (await getCollection("blog"))
         </div>
 
         <div class="cta">
-          <CallToAction href="/blog/" label="View All"/>
-            <!-- <Icon icon="arrow-right" size="1.2em" />
-          </CallToAction> -->
+          <CallToAction href="/blog/" label="View All" />
         </div>
       </section>
     </main>
@@ -76,6 +79,7 @@ const projects = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
+  /* Base Layout Styles */
   .hero {
     display: flex;
     flex-direction: column;
@@ -87,7 +91,7 @@ const projects = (await getCollection("blog"))
     display: none;
   }
 
-  .hero img {
+  .hero-image {
     aspect-ratio: 5 / 4;
     object-fit: cover;
     object-position: top;
@@ -109,15 +113,14 @@ const projects = (await getCollection("blog"))
       gap: 0.5rem;
     }
 
-    .hero img {
+    .hero-image {
       aspect-ratio: 3 / 4;
       border-radius: 4.5rem;
       object-fit: cover;
     }
   }
 
-  /* ====================================================== */
-
+  /* Section Styles */
   .section {
     display: grid;
     gap: 2rem;
@@ -147,10 +150,6 @@ const projects = (await getCollection("blog"))
     z-index: -1;
   }
 
-  .with-background.bg-variant::before {
-    --hero-bg: var(--bg-image-subtle-1);
-  }
-
   .section-header {
     justify-self: center;
     text-align: center;
@@ -163,15 +162,28 @@ const projects = (await getCollection("blog"))
     font-size: var(--text-2xl);
   }
 
+  .gallery {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cta {
+    justify-self: center;
+  }
+
   @media (min-width: 50em) {
     .section {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+      grid-template-areas:
+        "header header header header"
+        "gallery gallery gallery gallery";
       gap: 5rem;
     }
 
     .section.with-cta {
-      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
+      grid-template-areas:
+        "header header header cta"
+        "gallery gallery gallery gallery";
     }
 
     .section-header {
@@ -183,39 +195,12 @@ const projects = (await getCollection("blog"))
       font-size: var(--text-4xl);
     }
 
-    .with-cta .section-header {
-      justify-self: flex-start;
-      text-align: left;
-    }
-
     .gallery {
       grid-area: gallery;
     }
 
     .cta {
       grid-area: cta;
-    }
-  }
-
-  /* ====================================================== */
-
-  .mention-card {
-    display: flex;
-    height: 7rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--gray-800);
-    border-radius: 1.5rem;
-    color: var(--gray-300);
-    background: var(--gradient-subtle);
-    box-shadow: var(--shadow-sm);
-  }
-
-  @media (min-width: 50em) {
-    .mention-card {
-      border-radius: 1.5rem;
-      height: 9.5rem;
     }
   }
 </style>

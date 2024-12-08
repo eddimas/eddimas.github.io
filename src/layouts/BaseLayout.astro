@@ -1,97 +1,123 @@
 ---
-// Learn about using Astro layouts:
-// https://docs.astro.build/en/core-concepts/layouts/
-
-// Component Imports
-import Nav from '../components/Nav.astro';
-import MainHead from '../components/MainHead.astro';
-import Footer from '../components/Footer.astro';
+import Nav from "../components/Nav.astro";
+import MainHead from "../components/MainHead.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
-const { title, description } = Astro.props;
+const { title = "Default Title", description = "Default description" } =
+  Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta property="og:title" content="Eduardo Dimas' Portfolio">
-		<meta property="og:type" content="Portfolio" />
-		<meta property="og:image" content="https://eduardodimas.com/assets/large_card.png">
-		<meta property="og:url" content="https://eduardodimas.com/">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="og:description" content="Senior DevOps/SRE Engineer" />
-		<meta name="twitter:site" content="@eddimas" />
-		<meta name="view-transition" content="same-origin" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<MainHead title={title} description={description} />
-	</head>
-	<body>
-		<div class="stack backgrounds">
-			<Nav />
-			<slot />
-			<Footer />
-		</div>
+    <!-- Dynamic Metadata -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://eduardodimas.com/assets/large_card.png"
+    />
+    <meta property="og:url" content="https://eduardodimas.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eddimas" />
+    <meta name="view-transition" content="same-origin" />
 
-		<script>
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "28690b7f875f471e8e4357607ab2ea85"}'></script>
 
-		<style>
-			:root {
-				--_placeholder-bg: linear-gradient(transparent, transparent);
-				--bg-image-subtle-1: var(--_placeholder-bg);
-				--bg-image-subtle-2: var(--_placeholder-bg);
-				--bg-image-footer: var(--_placeholder-bg);
-				--bg-svg-blend-mode: overlay;
-				--bg-blend-mode: darken;
-				--bg-image-aspect-ratio: 2.25;
-				--bg-scale: 1.68;
-				--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
-				--bg-gradient-size: calc(var(--bg-scale) * 100%);
-			}
+    <!-- Google Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SC384MS38"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-5SC384MS38");
+    </script>
 
-			:root.theme-dark {
-				--bg-svg-blend-mode: darken;
-				--bg-blend-mode: lighten;
-			}
+    <!-- Main Head Component -->
+    <MainHead title={title} description={description} />
+  </head>
+  <body>
+    <header>
+      <Nav />
+    </header>
 
-			@media (min-width: 50em) {
-				:root {
-					--bg-scale: 1;
-				}
-			}
+    <main class="stack backgrounds">
+      <slot />
+    </main>
 
-			.backgrounds {
-				min-height: 100%;
-				isolation: isolate;
-				background:
-					/*noise*/
-					url('/assets/backgrounds/noise.png') top center/220px repeat,
-					/*footer*/ var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
-					/*header1*/ var(--bg-image-main-curves) top center/var(--bg-gradient-size) no-repeat,
-					/*header2*/ var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
-					/*base*/ var(--gray-999);
-				background-blend-mode: /*noise*/
-					overlay,
-					/*footer*/ var(--bg-blend-mode),
-					/*header1*/ var(--bg-svg-blend-mode),
-					/*header2*/ normal,
-					/*base*/ normal;
-			}
-			@media (forced-colors: active) {
-				.backgrounds {
-					background: none;
-					background-blend-mode: none;
-					--bg-gradient-size: none;
-				}
-			}
-		</style>
-	</body>
+    <footer>
+      <Footer />
+    </footer>
+
+    <script>
+      window.addEventListener("load", () =>
+        document.documentElement.classList.add("loaded")
+      );
+    </script>
+
+    <style>
+      :root {
+        --_placeholder-bg: linear-gradient(transparent, transparent);
+        --bg-image-subtle-1: var(--_placeholder-bg);
+        --bg-image-subtle-2: var(--_placeholder-bg);
+        --bg-image-footer: var(--_placeholder-bg);
+        --bg-svg-blend-mode: overlay;
+        --bg-blend-mode: darken;
+        --bg-image-aspect-ratio: 2.25;
+        --bg-scale: 1.68;
+        --bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
+        --bg-gradient-size: calc(var(--bg-scale) * 100%);
+      }
+
+      :root.theme-dark {
+        --bg-svg-blend-mode: darken;
+        --bg-blend-mode: lighten;
+      }
+
+      @media (min-width: 50em) {
+        :root {
+          --bg-scale: 1;
+        }
+      }
+
+      .backgrounds {
+        min-height: 100%;
+        isolation: isolate;
+        background:
+          url("/assets/backgrounds/noise.png") top center/220px repeat,
+          var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
+          var(--bg-image-main-curves) top center/var(--bg-gradient-size)
+            no-repeat,
+          var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
+          var(--gray-999);
+        background-blend-mode: overlay, var(--bg-blend-mode),
+          var(--bg-svg-blend-mode), normal, normal;
+      }
+
+      @media (forced-colors: active) {
+        .backgrounds {
+          background: none;
+          background-blend-mode: none;
+          --bg-gradient-size: none;
+        }
+      }
+    </style>
+  </body>
 </html>

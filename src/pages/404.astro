@@ -1,8 +1,62 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+<BaseLayout
+  title="404 - Page Not Found"
+  description="404 Error — The page you are looking for does not exist."
+>
+  <div class="not-found stack gap-8">
+    <!-- Hero Section -->
+    <Hero
+      title="404 - Page Not Found"
+      tagline="Oops! The page you're looking for doesn't exist or has been moved."
+    />
+
+    <!-- Call to Action Section -->
+    <div class="cta">
+      <p>Let us help you find your way:</p>
+      <a href="/" class="btn-primary">Go to Homepage</a>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 0 1.5rem;
+  }
+
+  .cta {
+    margin-top: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: var(--text-md);
+    font-weight: bold;
+    color: var(--gray-0);
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--primary-hover-color);
+  }
+
+  @media (min-width: 50em) {
+    .not-found {
+      margin-top: 8rem;
+    }
+
+    .btn-primary {
+      font-size: var(--text-lg);
+    }
+  }
+</style>
