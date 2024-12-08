@@ -2,25 +2,73 @@
 import "../styles/global.css";
 
 interface Props {
+  url?: string | undefined;
+  photo?: string | undefined;
   title?: string | undefined;
   description?: string | undefined;
 }
 
 const {
-  title = "Eduardo Dimas: Personal Site",
-  description = "The personal site of Eduardo Dimas",
+  url = "https://eduardoDimas.com/",
+  photo = "/assets/portrait.webp",
+  title = "Personal Site | Portfolio | EduardoDimas.com",
+  description = "Eduardo Dimas; AWS Solutions Architect, Dev Ops, Python, Back-end Developer.",
 } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="generator" content={Astro.generator} />
-<title>{title}</title>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- HTML Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content={title} />
+<meta itemprop="description" content={description} />
+<meta itemprop="image" content={photo} />
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={photo} />
+<meta property="
+      og:url" content={url} />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:site" content="@eddimas" />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={photo} />
+
+<meta name="view-transition" content="same-origin" />
+
+<!-- Cloudflare Web Analytics -->
+<script
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "28690b7f875f471e8e4357607ab2ea85"}'></script>
+
+<!-- Google Tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5SC384MS38"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-5SC384MS38");
+</script>
+
 <script is:inline>
   // This code is inlined in the head to make dark mode instant & blocking.
   const getThemePreference = () => {

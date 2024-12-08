@@ -2,56 +2,12 @@
 import Nav from "../components/Nav.astro";
 import MainHead from "../components/MainHead.astro";
 import Footer from "../components/Footer.astro";
-
-interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-}
-
-const { title = "Default Title", description = "Default description" } =
-  Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Dynamic Metadata -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content="https://eduardodimas.com/assets/large_card.png"
-    />
-    <meta property="og:url" content="https://eduardodimas.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@eddimas" />
-    <meta name="view-transition" content="same-origin" />
-
-    <!-- Cloudflare Web Analytics -->
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "28690b7f875f471e8e4357607ab2ea85"}'></script>
-
-    <!-- Google Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SC384MS38"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-5SC384MS38");
-    </script>
-
     <!-- Main Head Component -->
-    <MainHead title={title} description={description} />
+    <MainHead />
   </head>
   <body>
     <header>
